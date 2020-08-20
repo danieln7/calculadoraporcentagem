@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+	<title>Calculadora de Porcentagem</title>
+	<link rel="stylesheet" type="text/css" href="src/geral.css">
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+	<script src="src/geral.js"></script>
+	<script>
+		$(document).ready(function() {
+
+			$(".resultado").attr("readonly", true);
+			$(".btnCalc").val("CALCULAR");
+
+			function perc1() {
+				var c11 = $("#c11").val();
+				var c12 = $("#c12").val();
+				if (!$.isNumeric(c11) || !$.isNumeric(c12)) return "";
+				var result;
+				result = c11 / 100 * c12;
+				return (result);
+			}
+
+			function perc2() {
+				var c21 = $("#c21").val();
+				var c22 = $("#c22").val();
+				if (!$.isNumeric(c21) || !$.isNumeric(c22) || c22 == 0) return "";
+				var result;
+				result = c21 * 100 / c22;
+				return (result);
+			}
+
+			function perc3() {
+				var c31 = $("#c31").val();
+				var c32 = $("#c32").val();
+				if (!$.isNumeric(c31) || !$.isNumeric(c32) || c31 == 0) return "";
+				var result;
+				result = c32 * 100 / c31 - 100;
+				return (result);
+			}
+
+			function perc4() {
+				var c41 = $("#c41").val();
+				var c42 = $("#c42").val();
+				if (!$.isNumeric(c41) || !$.isNumeric(c42) || c41 == 0) return "";
+				var result;
+				result = 100 - c42 * 100 / c41;
+				return (result);
+			}
+
+			function perc5() {
+				var c51 = $("#c51").val();
+				var c52 = $("#c52").val();
+				if (!$.isNumeric(c51) || !$.isNumeric(c52) || c52 == 0) return "";
+				var result;
+				result = c51 * 100 / c52;
+				return (result);
+			}
+
+			function perc6() {
+				var c61 = $("#c61").val();
+				var c62 = $("#c62").val();
+				if (!$.isNumeric(c61) || !$.isNumeric(c62)) return "";
+				var result;
+				result = c61 * (1 + c62 / 100);
+				return (result);
+			}
+
+			function perc7() {
+				var c71 = $("#c71").val();
+				var c72 = $("#c72").val();
+				if (!$.isNumeric(c71) || !$.isNumeric(c72)) return "";
+				var result;
+				result = c71 * (1 - c72 / 100);
+				return (result);
+			}
+
+			function perc8() {
+				var c81 = $("#c81").val();
+				var c82 = $("#c82").val();
+				if (!$.isNumeric(c81) || !$.isNumeric(c82)) return "";
+				var result;
+				result = c82 / (1 + c81 / 100);
+				return (result);
+			}
+
+			function perc9() {
+				var c91 = $("#c91").val();
+				var c92 = $("#c92").val();
+				if (!$.isNumeric(c91) || !$.isNumeric(c92)) return "";
+				var result;
+				result = c92 / (1 - c91 / 100);;
+				return (result);
+			}
+
+			$("#btnCalc1").click(function() {
+				$("#r1").val(perc1);
+			});
+			$("#btnCalc2").click(function() {
+				$("#r2").val(perc2);
+			});
+			$("#btnCalc3").click(function() {
+				$("#r3").val(perc3);
+			});
+			$("#btnCalc4").click(function() {
+				$("#r4").val(perc4);
+			});
+			$("#btnCalc5").click(function() {
+				$("#r5").val(perc5);
+			});
+			$("#btnCalc6").click(function() {
+				$("#r6").val(perc6);
+			});
+			$("#btnCalc7").click(function() {
+				$("#r7").val(perc7);
+			});
+			$("#btnCalc8").click(function() {
+				$("#r8").val(perc8);
+			});
+			$("#btnCalc9").click(function() {
+				$("#r9").val(perc9);
+			});
+
+		});
+	</script>
+</head>
+
+<body class="porcentagem">
+
+	<div class="container porcentagem">
+
+		<div class="cabecalho porcentagem">
+			Calculadora de Porcentagem
+		</div>
+
+		<div class="main porcentagem" id="calc1">
+			Quanto é <input type="number" id="c11" class="variavel decimal porcentagem"> % de <input type="number" id="c12" class="variavel decimal porcentagem"> ?
+			<input type="button" id="btnCalc1" class="porcentagem btnCalc">
+			<input type="text" id="r1" class="resultado porcentagem">
+		</div>
+
+		<div class="main porcentagem" id="calc2">
+			O valor <input type="number" id="c21" class="porcentagem variavel decimal"> é qual porcentagem de <input type="number" id="c22" class="porcentagem variavel decimal"> ?
+			<input type="button" id="btnCalc2" class="porcentagem btnCalc">
+			<input type="text" id="r2" class="resultado porcentagem"> %
+		</div>
+
+		<div class="main porcentagem" id="calc3">
+			Eu tenho um valor de <input type="number" id="c31" class="porcentagem variavel decimal"> que <strong>AUMENTOU</strong> para <input type="number" id="c32" class="porcentagem variavel decimal">. Qual foi o aumento percentual?
+			<input type="button" id="btnCalc3" class="porcentagem btnCalc">
+			<input type="text" id="r3" class="resultado porcentagem"> %
+		</div>
+
+		<div class="main porcentagem" id="calc4">
+			Eu tenho um valor de <input type="number" id="c41" class="porcentagem variavel decimal"> que <strong>DIMINUIU</strong> para <input type="number" id="c42" class="porcentagem variavel decimal">. Qual foi a diminuição percentual?
+			<input type="button" id="btnCalc4" class="porcentagem btnCalc">
+			<input type="text" id="r4" class="resultado porcentagem"> %
+		</div>
+
+		<div class="main porcentagem" id="calc5">
+			O valor <input type="number" id="c51" class="porcentagem variavel decimal"> é <input type="number" id="c52" class="porcentagem variavel decimal"> % de um valor total. Qual o valor total?
+			<input type="button" id="btnCalc5" class="porcentagem btnCalc">
+			<input type="text" id="r5" class="resultado porcentagem">
+		</div>
+
+		<div class="main porcentagem" id="calc6">
+			Eu tenho um valor de <input type="number" id="c61" class="porcentagem variavel decimal"> e quero <strong>AUMENTAR</strong> <input type="number" id="c62" class="porcentagem variavel decimal"> %. Qual é o resultado?
+			<input type="button" id="btnCalc6" class="porcentagem btnCalc">
+			<input type="text" id="r6" class="resultado porcentagem">
+		</div>
+
+		<div class="main porcentagem" id="calc7">
+			Eu tenho um valor de <input type="number" id="c71" class="porcentagem variavel decimal"> e quero <strong>DIMINUIR</strong> <input type="number" id="c72" class="porcentagem variavel decimal"> %. Qual é o resultado?
+			<input type="button" id="btnCalc7" class="porcentagem btnCalc">
+			<input type="text" id="r7" class="resultado porcentagem">
+		</div>
+
+		<div class="main porcentagem" id="calc8">
+			Eu tenho um valor inicial que <strong>AUMENTOU</strong> em <input type="number" id="c81" class="porcentagem variavel decimal"> % e passou para <input type="number" id="c82" class="porcentagem variavel decimal">. Qual é o valor inicial?
+			<input type="button" id="btnCalc8" class="porcentagem btnCalc">
+			<input type="text" id="r8" class="resultado porcentagem">
+		</div>
+
+		<div class="main porcentagem" id="calc9">
+			Eu tenho um valor inicial que <strong>DIMINUIU</strong> em <input type="number" id="c91" class="porcentagem variavel decimal"> % e passou para <input type="number" id="c92" class="porcentagem variavel decimal">. Qual é o valor inicial?
+			<input type="button" id="btnCalc9" class="porcentagem btnCalc">
+			<input type="text" id="r9" class="resultado porcentagem">
+		</div>
+
+		<div class="rodape porcentagem">
+			<a href="index.html">Voltar</a>
+		</div>
+
+	</div>
+	<!-- class="container" -->
+
+</body>
+
+</html>
